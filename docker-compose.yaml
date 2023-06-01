@@ -1,0 +1,41 @@
+version: '3'
+services:
+  frontend:
+    container_name: frontend
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    tty: true
+    volumes:
+      - .:/workspace:cached
+    extra_hosts:
+      - localhost:172.18.0.1
+
+  backend:
+    container_name: backend
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    tty: true
+    volumes:
+      - .:/workspace:cached
+    links:
+      - db
+
+  db:
+    container_name: db
+    build:
+      context: .
+      dockerfile: Dockerfile.database
+    restart: always
+
+  phpmyadmin:
+    container_name: phpmyadmin
+    build:
+      context: .
+      dockerfile: Dockerfile.phpmyadmin
+    restart: always
+    links:
+      - db
+    ports:
+      - 8080:80
