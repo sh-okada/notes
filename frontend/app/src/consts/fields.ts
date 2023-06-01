@@ -5,7 +5,7 @@ export const fields = {
     schemas: {
       required: {
         value: true,
-        message: "IDは必須項目です",
+        message: "IDを入力してください",
       },
       minLength: {
         value: 3,
@@ -23,7 +23,7 @@ export const fields = {
     schemas: {
       required: {
         value: true,
-        message: "表示名は必須項目です",
+        message: "表示名を入力してください",
       },
       minLength: {
         value: 3,
@@ -41,7 +41,7 @@ export const fields = {
     schemas: {
       required: {
         value: true,
-        message: "パスワードは必須項目です",
+        message: "パスワードを入力してください",
       },
       minLength: {
         value: 8,

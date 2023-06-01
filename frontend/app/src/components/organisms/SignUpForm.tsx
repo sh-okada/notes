@@ -29,13 +29,13 @@ const SignUpForm = () => {
 
   const onSubmit: SubmitHandler<UserPostRequest> = (data) => {
     postUser(data)
-      .then((res) => {
+      .then((_res) => {
         setMessage({
           message: `登録完了しました`,
           serverity: "success",
         });
       })
-      .catch((res) => {
+      .catch((_res) => {
         setMessage({
           message: `入力されたIDは既に使用されています`,
           serverity: "error",

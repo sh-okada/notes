@@ -1,5 +1,6 @@
 import { customAxios } from "@/libs/axios";
 import {
+  LoginRequest,
   PostRequest,
   QuestionResponse,
   StrengthRequest,
@@ -16,6 +17,9 @@ export const question = (id: string) =>
 
 export const post = (postRequest: PostRequest) =>
   customAxios.post<QuestionResponse>("/questions", postRequest);
+
+export const login = (loginRequest: LoginRequest) =>
+  customAxios.post<UserResponse>("/auth/login", loginRequest);
 
 export const postUser = (userPostRequest: UserPostRequest) =>
   customAxios.post<UserResponse>("/users", userPostRequest);

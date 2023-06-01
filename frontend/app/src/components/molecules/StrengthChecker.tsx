@@ -53,6 +53,12 @@ const StrengthChecker = ({ strength }: Props) => {
       nextButton={undefined}
       sx={{
         bgcolor: "transparent",
+        "& .MuiLinearProgress-colorPrimary": {
+          backgroundColor: "transparent",
+        },
+        "& .MuiLinearProgress-barColorPrimary": {
+          backgroundColor: properties[strength].lineColor,
+        },
       }}
     />
   );

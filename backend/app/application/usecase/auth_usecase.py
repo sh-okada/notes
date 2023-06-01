@@ -17,7 +17,7 @@ class AuthUseCase:
         self.__user_repository = user_repository
 
     def login(self, login_request: LoginRequest) -> Tuple[str, UserResponse]:
-        user = self.__user_repository.find_by_id(login_request.user_id)
+        user = self.__user_repository.find_by_id(login_request.id)
 
         if not Password.verify(login_request.password, user.password):
             raise unauthorized()

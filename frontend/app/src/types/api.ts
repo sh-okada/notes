@@ -14,6 +14,11 @@ export interface StrengthResponse {
   strength: "terrible" | "simple" | "medium" | "strong";
 }
 
+export interface LoginRequest {
+  id: string;
+  password: string;
+}
+
 export interface UserPostRequest {
   id: string;
   name: string;
