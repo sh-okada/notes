@@ -3,14 +3,12 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
 from app.infrastructure.db.mysql import Base, engine
-from app.infrastructure.db.orm.question import OrmQuestion
 from app.infrastructure.db.orm.user import OrmUser
 from app.infrastructure.router.auth_router import auth_router
-from app.infrastructure.router.question_router import question_router
 from app.infrastructure.router.user_router import user_router
 from app.infrastructure.router.password_router import password_router
 
-Base.metadata.create_all(bind=engine, tables=[OrmUser.__table__, OrmQuestion.__table__])
+Base.metadata.create_all(bind=engine, tables=[OrmUser.__table__])
 
 app = FastAPI()
 
@@ -24,7 +22,6 @@ app.add_middleware(
 
 app.include_router(auth_router)
 app.include_router(user_router)
-app.include_router(question_router)
 app.include_router(password_router)
 
 
