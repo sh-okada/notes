@@ -1,8 +1,7 @@
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter
 from app.application.dto.request.strength_request import StrengthRequest
 from app.application.dto.response.strength_response import StrengthResponse
 
-from app.application.usecase.auth_usecase import AuthUseCase
 from app.shared.auth.password import Password
 
 
