@@ -1,4 +1,4 @@
-import { Box, Container, Toolbar } from "@mui/material";
+import { Box, Container } from "@mui/material";
 import { ReactNode } from "react";
 
 interface Props {
@@ -9,7 +9,6 @@ const SecondaryLayout = ({ children }: Props) => {
   return (
     <>
       <Box component="main" py={5}>
-        <Toolbar />
         <Container maxWidth="md">{children}</Container>
       </Box>
     </>
