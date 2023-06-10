@@ -53,4 +53,22 @@ export const fields = {
       },
     },
   },
+  title: {
+    property: "title",
+    label: "Title",
+    schemas: {
+      required: {
+        value: true,
+        message: "タイトルを入力してください",
+      },
+      minLength: {
+        value: 3,
+        message: "3文字以上で入力してください",
+      },
+      maxLength: {
+        value: 50,
+        message: "50文字以下で入力してください",
+      },
+    },
+  },
 } as const;

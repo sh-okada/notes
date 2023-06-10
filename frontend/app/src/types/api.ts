@@ -3,11 +3,11 @@ export interface UserResponse {
   name: string;
 }
 
-export interface QuestionResponse {
+export interface NoteResponse {
   id: string;
   title: string;
   body: string;
-  posted_user: UserResponse;
+  created_at: Date;
 }
 
 export interface StrengthResponse {

@@ -7,13 +7,46 @@ body {
 .CodeMirror-scroll {
   border-radius: 0.3em;
 }
-/* .CodeMirror {
-  overflow: hidden;
-  margin-top: -50px;
-  padding-top: 60px;
-  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  border-color: #e2e8f0;
-} */
+
+.success {
+  margin: 10px 0;
+  padding: 10px 10px;
+  border-radius: 5px;
+  color: #3a6f3a;
+  background-color: #daedd2;
+}
+
+.info {
+  margin: 10px 0;
+  padding: 10px 10px;
+  border-radius: 5px;
+  color: #2b6584;
+  background-color: #d3eaf6;
+}
+
+.warning {
+  margin: 10px 0;
+  padding: 10px 10px;
+  border-radius: 5px;
+  color: #af9c75;
+  background-color: #fcf7df;
+}
+
+.danger {
+  margin: 10px 0;
+  padding: 10px 10px;
+  border-radius: 5px;
+  color: #9f3b3a;
+  background-color: #f0d9d9;
+}
+
+img.emoji {
+  height: 1em;
+  width: 1em;
+  margin: 0 0.05em 0 0.1em;
+  vertical-align: -0.1em;
+}
+
 /* .CodeMirror-focused {
   box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
 }

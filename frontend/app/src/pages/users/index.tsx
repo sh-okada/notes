@@ -1,5 +1,5 @@
-import MarkdownEditor from "@/components/molecules/MarkdownEditor";
+import PostForm from "@/components/organisms/PostForm";
 
 export default function Page() {
-  return <MarkdownEditor />;
+  return <PostForm />;
 }
