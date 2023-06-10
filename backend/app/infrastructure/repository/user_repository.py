@@ -4,7 +4,7 @@ from sqlalchemy.orm import Session
 from app.domain.entity.user import User
 from app.domain.repository.user_repository import IUserRepository
 from app.infrastructure.db.mysql import get_db
-from app.infrastructure.db.orm.user import OrmUser
+from app.infrastructure.db.orm.schema import OrmUser
 from app.shared.exception.http import bad_request, not_found
 from app.shared.mapper.user_mapper import UserMapper
 

@@ -1,7 +1,6 @@
 from fastapi import APIRouter, Depends, status
-from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
-
+from fastapi.responses import JSONResponse
 
 from app.application.dto.request.sign_up_request import SignUpRequest
 from app.application.dto.response.user_response import UserResponse

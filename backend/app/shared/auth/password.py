@@ -1,5 +1,5 @@
 from passlib.context import CryptContext
-from safe import check, Strength
+from safe import Strength, check
 
 
 class Password:

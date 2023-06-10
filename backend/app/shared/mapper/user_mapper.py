@@ -1,6 +1,6 @@
 from app.application.dto.response.user_response import UserResponse
 from app.domain.entity.user import User
-from app.infrastructure.db.orm.user import OrmUser
+from app.infrastructure.db.orm.schema import OrmUser
 from app.shared.mapper.mapper import IMapper
 
 

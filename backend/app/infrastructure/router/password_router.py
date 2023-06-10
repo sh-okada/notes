@@ -1,9 +1,8 @@
 from fastapi import APIRouter
+
 from app.application.dto.request.strength_request import StrengthRequest
 from app.application.dto.response.strength_response import StrengthResponse
-
 from app.shared.auth.password import Password
-
 
 password_router = APIRouter(prefix="/password")
 

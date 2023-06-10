@@ -1,11 +1,10 @@
 from fastapi import APIRouter, Depends, Response, status
+from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
 
 from app.application.dto.request.login_request import LoginRequest
 from app.application.usecase.auth_usecase import AuthUseCase
 from app.shared.auth.jwt import Jwt, Payload
-from fastapi.encoders import jsonable_encoder
-
 
 auth_router = APIRouter(prefix="/auth")
 

@@ -1,4 +1,5 @@
 from abc import ABCMeta, abstractmethod
+
 from app.domain.entity.note import Note
 
 
@@ -8,5 +9,5 @@ class INoteRepository(metaclass=ABCMeta):
         raise NotImplementedError()
 
     @abstractmethod
-    def create(self, user_id: str, note: Note) -> Note:
+    def create(self, note: Note) -> Note:
         raise NotImplementedError()

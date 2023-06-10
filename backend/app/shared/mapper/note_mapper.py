@@ -1,6 +1,7 @@
 from app.application.dto.response.note_response import NoteResponse
 from app.domain.entity.note import Note
-from app.infrastructure.db.orm.note import OrmNote
+from app.domain.entity.posted_user import PostedUser
+from app.infrastructure.db.orm.schema import OrmNote
 from app.shared.mapper.mapper import IMapper
 
 
@@ -12,6 +13,7 @@ class NoteMapper(IMapper[Note, OrmNote, NoteResponse]):
             title=orm.title,
             body=orm.body,
             created_at=orm.created_at,
+            posted_user=PostedUser.create(orm.posted_user.id, orm.posted_user.name),
         )
 
     @classmethod
@@ -21,6 +23,7 @@ class NoteMapper(IMapper[Note, OrmNote, NoteResponse]):
             title=entity.title,
             body=entity.body,
             created_at=entity.created_at,
+            posted_user_id=entity.posted_user.id,
         )
 
     @classmethod
