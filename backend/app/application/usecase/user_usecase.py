@@ -8,7 +8,6 @@ from app.domain.entity.user import User
 from app.domain.repository.user_repository import IUserRepository
 from app.infrastructure.repository.user_repository import UserRepository
 from app.shared.auth.jwt import Jwt
-from app.shared.auth.password import Password
 from app.shared.mapper.user_mapper import UserMapper
 
 
@@ -17,9 +16,7 @@ class UserUseCase:
         self.__user_repository = user_repository
 
     def sign_up(self, sign_up_request: SignUpRequest) -> Tuple[str, UserResponse]:
-        user = User(
-            id=sign_up_request.id, name=sign_up_request.name, password=Password.hashed(sign_up_request.password)
-        )
+        user = User.sign_up(sign_up_request.id, sign_up_request.name, sign_up_request.password)
 
         access_token = Jwt.create_access_token(user_id=user.id)
 

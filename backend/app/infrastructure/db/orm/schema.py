@@ -13,7 +13,7 @@ class OrmUser(Base):
     name: Mapped[str] = Column(String(255), nullable=False)
     password: Mapped[str] = Column(String(255), nullable=False)
 
-    notes: Mapped["OrmNote"] = relationship("OrmNote", back_populates="posted_user")
+    notes: Mapped[list["OrmNote"]] = relationship("OrmNote", back_populates="posted_user")
 
 
 class OrmNote(Base):
