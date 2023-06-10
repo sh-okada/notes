@@ -3,7 +3,7 @@ import PrimaryLayout from "@/components/templates/PrimaryLayout";
 import { theme } from "@/styles/theme";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { NextPage } from "next";
-import type { AppProps } from "next/app";
+import { AppProps } from "next/app";
 import { ReactElement, ReactNode } from "react";
 import { RecoilRoot } from "recoil";
 import "../styles/global.css";
