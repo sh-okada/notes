@@ -71,4 +71,7 @@ export const fields = {
       },
     },
   },
+  body: {
+    property: "body",
+  },
 } as const;

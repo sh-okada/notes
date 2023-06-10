@@ -6,7 +6,7 @@ import { PostRequest } from "@/types/api";
 import { Box, Button, InputBase, Stack } from "@mui/material";
 import "easymde/dist/easymde.min.css";
 import dynamic from "next/dynamic";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useSetRecoilState } from "recoil";
 
@@ -16,16 +16,21 @@ const SimpleMde = dynamic(() => import("react-simplemde-editor"), {
 
 const PostForm = () => {
   const setMessage = useSetRecoilState(messageState);
-  const [markdownValue, setMarkdownValue] = useState("");
   const {
+    watch,
+    setValue,
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<PostRequest>({
     reValidateMode: "onSubmit",
+    defaultValues: {
+      title: "",
+      body: "",
+    },
   });
 
-  const { title } = fields;
+  const { title, body } = fields;
 
   const options = useMemo(() => {
     return {
@@ -38,11 +43,11 @@ const PostForm = () => {
   }, []);
 
   const handeChangeValue = (value: string) => {
-    setMarkdownValue(value);
+    setValue(body.property, value);
   };
 
   const onSubmit: SubmitHandler<PostRequest> = (data) => {
-    postNote({ ...data, body: markdownValue })
+    postNote(data)
       .then(() => {
         setMessage({ serverity: "success", message: "保存しました" });
       })
@@ -72,13 +77,13 @@ const PostForm = () => {
         </Box>
       </Box>
       <SimpleMde
-        value={markdownValue}
+        value={watch().body}
         onChange={handeChangeValue}
         options={options}
       />
       <div
         dangerouslySetInnerHTML={{
-          __html: md.render(markdownValue),
+          __html: md.render(watch().body),
         }}
       ></div>
     </Stack>
