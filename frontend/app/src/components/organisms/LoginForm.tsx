@@ -21,7 +21,7 @@ const LoginForm = () => {
           message: `ログインしました`,
           serverity: "success",
         });
-        router.replace(`/users`);
+        router.replace(`/notes`);
       })
       .catch((_res) => {
         setMessage({
