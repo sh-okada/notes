@@ -11,13 +11,14 @@
 // });
 
 import { createTheme } from "@mui/material";
+import { colors } from "./color";
 
 export const theme = createTheme({
-  // palette: {
-  //   primary: {
-  //     main: colorPrimary,
-  //   },
-  // },
+  palette: {
+    primary: {
+      main: colors.primary,
+    },
+  },
   // typography: {
   //   fontFamily: [notoSansJP.style.fontFamily, robot.style.fontFamily].join(","),
   // },
@@ -26,6 +27,13 @@ export const theme = createTheme({
       styleOverrides: {
         root: {
           wordWrap: "break-word",
+        },
+      },
+    },
+    MuiAppBar: {
+      styleOverrides: {
+        root: {
+          backgroundColor: colors.bgPrimary,
         },
       },
     },
