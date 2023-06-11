@@ -8,8 +8,6 @@ services:
     tty: true
     volumes:
       - .:/workspace:cached
-    extra_hosts:
-      - localhost:172.18.0.1
 
   backend:
     container_name: backend

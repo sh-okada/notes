@@ -4,9 +4,6 @@
     "../docker-compose.yaml"
   ],
   "service": "backend",
-  "forwardPorts": [
-    8000
-  ],
   "customizations": {
     "vscode": {
       "extensions": [
