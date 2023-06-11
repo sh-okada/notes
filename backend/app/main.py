@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException, Request
+from fastapi import FastAPI, HTTPException, Request, status
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
@@ -8,6 +8,9 @@ from app.infrastructure.router.auth_router import auth_router
 from app.infrastructure.router.note_router import note_router
 from app.infrastructure.router.password_router import password_router
 from app.infrastructure.router.user_router import user_router
+
+from app.shared.auth.jwt import Jwt
+
 
 Base.metadata.create_all(bind=engine, tables=[OrmUser.__table__, OrmNote.__table__])
 
@@ -34,7 +37,12 @@ async def index():
 
 @app.exception_handler(HTTPException)
 async def http_exception_handler(_: Request, exc: HTTPException):
-    return JSONResponse(
+    response = JSONResponse(
         status_code=exc.status_code,
         content="http error",
     )
+
+    if response.status_code == status.HTTP_401_UNAUTHORIZED:
+        response.set_cookie(key=Jwt.COOKIE_KEY, httponly=True, max_age=0, secure=True)
+
+    return response
