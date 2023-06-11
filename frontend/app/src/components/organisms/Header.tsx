@@ -7,6 +7,7 @@ import {
   Typography,
 } from "@mui/material";
 import { useRouter } from "next/router";
+
 import LogoutButton from "./LogoutButton";
 
 const Header = () => {
@@ -25,7 +26,7 @@ const Header = () => {
       <Container maxWidth="md">
         <Toolbar variant="dense" disableGutters>
           <Box sx={{ flexGrow: 1 }}>
-            <ButtonBase onClick={handleClickHome}>
+            <ButtonBase onClick={handleClickHome} disableTouchRipple>
               <Typography variant="h6" fontWeight="bold">
                 Notes
               </Typography>

@@ -1,9 +1,10 @@
+import { Box, Stack, Typography } from "@mui/material";
+import { GetServerSideProps } from "next";
+
 import { getNote } from "@/api";
 import MarkdownPreview from "@/components/atoms/MarkdownPreview";
 import { NoteResponse } from "@/types/api";
 import { withCookie, withValidToken } from "@/utils/middleware";
-import { Box, Stack, Typography } from "@mui/material";
-import { GetServerSideProps } from "next";
 
 interface Props {
   note: NoteResponse;

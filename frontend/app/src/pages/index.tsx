@@ -1,6 +1,3 @@
-import LoginForm from "@/components/organisms/LoginForm";
-import SignUpForm from "@/components/organisms/SignUpForm";
-import SecondaryLayout from "@/components/templates/SecondaryLayout";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
@@ -8,6 +5,11 @@ import { Box, Stack, Tab } from "@mui/material";
 import Lottie from "lottie-react";
 import { GetServerSideProps } from "next";
 import { ReactNode, useState } from "react";
+
+import LoginForm from "@/components/organisms/LoginForm";
+import SignUpForm from "@/components/organisms/SignUpForm";
+import SecondaryLayout from "@/components/templates/SecondaryLayout";
+
 import note from "../../public/assets/note.json";
 
 export default function Page() {

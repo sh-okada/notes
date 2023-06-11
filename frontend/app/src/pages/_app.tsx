@@ -1,11 +1,12 @@
-import MessageProvider from "@/components/MessageProvider";
-import PrimaryLayout from "@/components/templates/PrimaryLayout";
-import { theme } from "@/styles/theme";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { NextPage } from "next";
 import { AppProps } from "next/app";
 import { ReactElement, ReactNode } from "react";
 import { RecoilRoot } from "recoil";
+
+import MessageProvider from "@/components/MessageProvider";
+import PrimaryLayout from "@/components/templates/PrimaryLayout";
+import { theme } from "@/styles/theme";
 import "../styles/global.css";
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {

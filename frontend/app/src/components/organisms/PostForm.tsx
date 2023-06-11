@@ -1,12 +1,15 @@
+import { Box, Fab, InputBase, Stack } from "@mui/material";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
+import { FiSave } from "react-icons/fi";
+import { useSetRecoilState } from "recoil";
+
 import { postNote } from "@/api";
 import { fields } from "@/consts/fields";
 import { messageState } from "@/stores/atom";
 import { PostRequest } from "@/types/api";
-import { Box, Button, InputBase, Stack } from "@mui/material";
-import { useRouter } from "next/router";
-import { useEffect } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
-import { useSetRecoilState } from "recoil";
+
 import FadeIn from "../atoms/FadeIn";
 import MarkdownPreview from "../atoms/MarkdownPreview";
 import MarkdownEditor from "../molecules/MarkdownEditor";
@@ -48,6 +51,7 @@ const PostForm = () => {
   useEffect(() => {
     errors.title &&
       setMessage({ serverity: "error", message: errors.title.message! });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [errors.title]);
 
   return (
@@ -59,16 +63,19 @@ const PostForm = () => {
           sx={{ fontWeight: "bold", fontSize: 30 }}
           fullWidth
         />
-        <Box>
-          <Button type="submit" variant="contained">
-            保存
-          </Button>
-        </Box>
       </Box>
       <FadeIn>
         <MarkdownEditor value={watch().body} onChange={handleChangeValue} />
       </FadeIn>
       <MarkdownPreview value={watch().body} />
+      <Fab
+        type="submit"
+        color="primary"
+        size="large"
+        sx={{ position: "absolute", bottom: 32, right: 32 }}
+      >
+        <FiSave size={25} />
+      </Fab>
     </Stack>
   );
 };

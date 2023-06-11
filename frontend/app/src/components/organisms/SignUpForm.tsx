@@ -1,7 +1,3 @@
-import { passwordStrength, postUser } from "@/api";
-import { fields } from "@/consts/fields";
-import { messageState } from "@/stores/atom";
-import { StrengthResponse, UserPostRequest } from "@/types/api";
 import {
   Alert,
   AlertTitle,
@@ -13,6 +9,12 @@ import {
 import { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useSetRecoilState } from "recoil";
+
+import { passwordStrength, postUser } from "@/api";
+import { fields } from "@/consts/fields";
+import { messageState } from "@/stores/atom";
+import { StrengthResponse, UserPostRequest } from "@/types/api";
+
 import PasswordField from "../molecules/PasswordField";
 import StrengthChecker from "../molecules/StrengthChecker";
 
@@ -49,6 +51,7 @@ const SignUpForm = () => {
     passwordStrength({ password: watch().password }).then((res) => {
       setStrength(res.data);
     });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [watch().password]);
 
   return (

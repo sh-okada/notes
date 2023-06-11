@@ -1,3 +1,10 @@
+import { AxiosError } from "axios";
+import {
+  GetServerSideProps,
+  GetServerSidePropsContext,
+  GetServerSidePropsResult,
+} from "next";
+
 import { validToken } from "@/api";
 import {
   ERROR_STATUS,
@@ -5,12 +12,6 @@ import {
   UNAUTHORIZED,
 } from "@/consts/httpStatus";
 import { customAxios } from "@/libs/axios";
-import { AxiosError } from "axios";
-import {
-  GetServerSideProps,
-  GetServerSidePropsContext,
-  GetServerSidePropsResult,
-} from "next";
 
 export function withError<E extends { [key: string]: any }>(
   getServerSideProps: (

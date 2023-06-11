@@ -1,4 +1,5 @@
 {
+  "extends": "next/core-web-vitals",
   "plugins": ["import", "unused-imports"],
   "rules": {
     "unused-imports/no-unused-imports": "error",
@@ -15,7 +16,6 @@
           "index"
         ],
         "newlines-between": "always",
-        "pathGroupsExcludedImportTypes": ["builtin"],
         "alphabetize": {
           "order": "asc",
           "caseInsensitive": true

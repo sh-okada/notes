@@ -1,6 +1,8 @@
-import { messageState } from "@/stores/atom";
 import { ReactNode, useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
+
+import { messageState } from "@/stores/atom";
+
 import Snackbar from "./molecules/Snackbar";
 
 interface Props {
