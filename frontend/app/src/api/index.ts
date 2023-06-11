@@ -20,6 +20,8 @@ export const postNote = (postRequest: PostRequest) =>
 export const login = (loginRequest: LoginRequest) =>
   customAxios.post<UserResponse>("/auth/login", loginRequest);
 
+export const logout = () => customAxios.get("/auth/logout");
+
 export const postUser = (userPostRequest: UserPostRequest) =>
   customAxios.post<UserResponse>("/users", userPostRequest);
 

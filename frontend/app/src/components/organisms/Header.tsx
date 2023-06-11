@@ -1,13 +1,13 @@
 import {
   AppBar,
   Box,
-  Button,
   ButtonBase,
   Container,
   Toolbar,
   Typography,
 } from "@mui/material";
 import { useRouter } from "next/router";
+import LogoutButton from "./LogoutButton";
 
 const Header = () => {
   const router = useRouter();
@@ -31,9 +31,7 @@ const Header = () => {
               </Typography>
             </ButtonBase>
           </Box>
-          <Button variant="contained" size="small" onClick={handleClickEdit}>
-            メモを取る
-          </Button>
+          <LogoutButton />
         </Toolbar>
       </Container>
     </AppBar>
