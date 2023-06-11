@@ -17,7 +17,7 @@ async def login(
     access_token, user = auth_usecase.login(login_request)
 
     response = JSONResponse(status_code=status.HTTP_200_OK, content=jsonable_encoder(vars(user)))
-    response.set_cookie(key=Jwt.COOKIE_KEY, value=access_token, httponly=True, max_age=60 * 30, secure=True)
+    response.set_cookie(key=Jwt.COOKIE_KEY, value=access_token, httponly=True, max_age=60 * 60 * 24, secure=True)
 
     return response
 
