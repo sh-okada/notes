@@ -1,4 +1,5 @@
 from fastapi import Depends
+from sqlalchemy import desc
 from sqlalchemy.orm import Session
 
 from app.domain.entity.note import Note
@@ -20,6 +21,11 @@ class NoteRepository(INoteRepository):
             raise not_found()
 
         return NoteMapper.orm_to_entity(orm_note)
+
+    def find_by_posted_user_id(self, posted_user_id: str) -> list[Note]:
+        orm_notes = self.__db.query(OrmNote).order_by(desc(OrmNote.created_at)).all()
+
+        return list(map(lambda note: NoteMapper.orm_to_entity(note), orm_notes))
 
     def create(self, note: Note) -> Note:
         orm_note = NoteMapper.entity_to_orm(note)

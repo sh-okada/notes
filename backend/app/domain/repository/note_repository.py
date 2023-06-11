@@ -9,5 +9,9 @@ class INoteRepository(metaclass=ABCMeta):
         raise NotImplementedError()
 
     @abstractmethod
+    def find_by_posted_user_id(self, posted_user_id: str) -> list[Note]:
+        raise NotImplementedError()
+
+    @abstractmethod
     def create(self, note: Note) -> Note:
         raise NotImplementedError()

@@ -19,12 +19,12 @@ class NoteUseCase:
         self.__note_repository = note_repository
 
     def fetch_notes(self, user_id: str) -> list[NoteResponse]:
-        user = self.__user_repository.find_by_id(user_id)
+        notes = self.__note_repository.find_by_posted_user_id(user_id)
 
-        return list(map(lambda note: NoteMapper.entity_to_response(note), user.notes))
+        return list(map(lambda note: NoteMapper.entity_to_response(note), notes))
 
     def fetch_note(self, id: str) -> NoteResponse:
-        return NoteMapper(self.__note_repository.find_by_id(id))
+        return NoteMapper.entity_to_response(self.__note_repository.find_by_id(id))
 
     def post(self, user_id: str, post_request: PostRequest) -> NoteResponse:
         user = self.__user_repository.find_by_id(user_id)
