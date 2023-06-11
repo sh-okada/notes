@@ -6,6 +6,7 @@ import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
 import { Box, Stack, Tab } from "@mui/material";
 import Lottie from "lottie-react";
+import { GetServerSideProps } from "next";
 import { ReactNode, useState } from "react";
 import note from "../../public/assets/note.json";
 
@@ -38,5 +39,20 @@ export default function Page() {
     </Stack>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  if (context.req.headers.cookie?.includes("access_token")) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: "/notes",
+      },
+    };
+  }
+
+  return {
+    props: {},
+  };
+};
 
 Page.getLayout = (page: ReactNode) => <SecondaryLayout>{page}</SecondaryLayout>;
