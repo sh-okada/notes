@@ -5,7 +5,7 @@ interface Props {
   date: Date;
 }
 
-const DateText = ({ date }: Props) => {
+const DateTimeText = ({ date }: Props) => {
   return (
     <Typography variant="caption">
       {dayjs(date).format("YYYY年MM月DD日 HH:mm")}
@@ -13,4 +13,4 @@ const DateText = ({ date }: Props) => {
   );
 };
 
-export default DateText;
+export default DateTimeText;
