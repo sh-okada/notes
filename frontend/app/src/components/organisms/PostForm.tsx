@@ -5,14 +5,14 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import { FiSave } from "react-icons/fi";
 import { useSetRecoilState } from "recoil";
 
+import FadeIn from "../atoms/FadeIn";
+import MarkdownEditor from "../molecules/MarkdownEditor";
+import MarkdownPreview from "../molecules/MarkdownPreview";
+
 import { postNote } from "@/api";
 import { fields } from "@/consts/fields";
 import { messageState } from "@/stores/atom";
 import { PostRequest } from "@/types/api";
-
-import FadeIn from "../atoms/FadeIn";
-import MarkdownPreview from "../atoms/MarkdownPreview";
-import MarkdownEditor from "../molecules/MarkdownEditor";
 
 const PostForm = () => {
   const router = useRouter();

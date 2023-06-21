@@ -2,7 +2,7 @@ import { Box, Stack, Typography } from "@mui/material";
 import { GetServerSideProps } from "next";
 
 import { getNote } from "@/api";
-import MarkdownPreview from "@/components/atoms/MarkdownPreview";
+import MarkdownPreview from "@/components/molecules/MarkdownPreview";
 import { NoteResponse } from "@/types/api";
 import { withCookie, withValidToken } from "@/utils/middleware";
 

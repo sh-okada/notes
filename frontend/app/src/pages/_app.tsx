@@ -7,7 +7,7 @@ import { RecoilRoot } from "recoil";
 import MessageProvider from "@/components/MessageProvider";
 import PrimaryLayout from "@/components/templates/PrimaryLayout";
 import { theme } from "@/styles/theme";
-import "../styles/global.css";
+import "../styles/css/global.css";
 
 export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: ReactElement) => ReactNode;

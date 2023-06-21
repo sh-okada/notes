@@ -10,13 +10,13 @@ import { useEffect, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useSetRecoilState } from "recoil";
 
+import PasswordField from "../molecules/PasswordField";
+import StrengthChecker from "../molecules/StrengthChecker";
+
 import { passwordStrength, postUser } from "@/api";
 import { fields } from "@/consts/fields";
 import { messageState } from "@/stores/atom";
 import { StrengthResponse, UserPostRequest } from "@/types/api";
-
-import PasswordField from "../molecules/PasswordField";
-import StrengthChecker from "../molecules/StrengthChecker";
 
 const SignUpForm = () => {
   const [strength, setStrength] = useState<StrengthResponse>();

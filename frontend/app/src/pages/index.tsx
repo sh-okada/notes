@@ -6,11 +6,11 @@ import Lottie from "lottie-react";
 import { GetServerSideProps } from "next";
 import { ReactNode, useState } from "react";
 
+import note from "../../public/assets/note.json";
+
 import LoginForm from "@/components/organisms/LoginForm";
 import SignUpForm from "@/components/organisms/SignUpForm";
 import SecondaryLayout from "@/components/templates/SecondaryLayout";
-
-import note from "../../public/assets/note.json";
 
 export default function Page() {
   const [value, setValue] = useState("1");

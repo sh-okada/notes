@@ -1,3 +1,6 @@
+import Prism from "prismjs";
+import { useEffect } from "react";
+
 import { md } from "@/libs/markdown";
 
 interface Props {
@@ -5,6 +8,10 @@ interface Props {
 }
 
 const MarkdownPreview = ({ value }: Props) => {
+  useEffect(() => {
+    Prism.highlightAll();
+  });
+
   return (
     <div
       dangerouslySetInnerHTML={{

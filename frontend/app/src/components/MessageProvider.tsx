@@ -1,9 +1,9 @@
 import { ReactNode, useEffect, useState } from "react";
 import { useRecoilValue } from "recoil";
 
-import { messageState } from "@/stores/atom";
-
 import Snackbar from "./molecules/Snackbar";
+
+import { messageState } from "@/stores/atom";
 
 interface Props {
   children: ReactNode;
